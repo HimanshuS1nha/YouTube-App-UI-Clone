@@ -139,6 +139,17 @@ const TabsLayout = () => {
               </View>
             );
           },
+          headerRight: () => {
+            return (
+              <View style={tw`mr-2 flex-row items-center gap-x-7`}>
+                <FontAwesome5 name="chromecast" size={24} color="black" />
+                <FontAwesome name="bell-o" size={24} color="black" />
+                <AntDesign name="search1" size={24} color="black" />
+                <Ionicons name="settings-outline" size={24} color="black" />
+              </View>
+            );
+          },
+          headerTitle: "",
         }}
       />
     </Tabs>
