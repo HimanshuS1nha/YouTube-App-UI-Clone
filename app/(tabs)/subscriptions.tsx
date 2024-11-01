@@ -1,6 +1,9 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Image } from "react-native";
 import React, { useMemo } from "react";
 import tw from "twrnc";
+import { videos } from "@/constants/videos";
+import VideoPreview from "@/components/VideoPreview";
+import ShortsSection from "@/components/ShortsSection";
 
 const Subscriptions = () => {
   const subscribedChannels = useMemo(
@@ -8,10 +11,6 @@ const Subscriptions = () => {
       {
         name: "Random",
         color: "green",
-      },
-      {
-        name: "Someone",
-        color: "pink",
       },
       {
         name: "Unknown",
@@ -26,7 +25,10 @@ const Subscriptions = () => {
     []
   );
   return (
-    <ScrollView contentContainerStyle={tw`bg-white py-2`}>
+    <ScrollView
+      contentContainerStyle={tw`bg-white py-2`}
+      showsVerticalScrollIndicator={false}
+    >
       <View style={tw`flex-row justify-between px-2.5 items-center`}>
         <View style={tw`flex-row gap-x-4 items-center`}>
           {subscribedChannels.map((channel) => {
@@ -47,6 +49,20 @@ const Subscriptions = () => {
               </View>
             );
           })}
+          <View style={tw`items-center gap-y-1`}>
+            <Image
+              source={require("../../assets/images/channel-logo.png")}
+              style={tw`w-12 h-12 rounded-full`}
+            />
+            <Text style={tw`text-xs font-medium`}>Coding...</Text>
+          </View>
+          <View style={tw`items-center gap-y-1`}>
+            <Image
+              source={require("../../assets/images/react-logo.webp")}
+              style={tw`w-12 h-12 rounded-full`}
+            />
+            <Text style={tw`text-xs font-medium`}>Random...</Text>
+          </View>
         </View>
         <Text style={tw`text-blue-600 font-bold`}>All</Text>
       </View>
@@ -74,7 +90,15 @@ const Subscriptions = () => {
         </ScrollView>
       </View>
 
-      <View style={tw``}></View>
+      <View style={tw`mt-2 gap-y-6`}>
+        {videos.map((video) => {
+          return <VideoPreview key={video.title} video={video} />;
+        })}
+      </View>
+
+      <View style={tw`px-2 mt-4`}>
+        <ShortsSection />
+      </View>
     </ScrollView>
   );
 };
