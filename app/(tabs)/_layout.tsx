@@ -118,6 +118,25 @@ const TabsLayout = () => {
               </>
             );
           },
+          headerLeft: () => {
+            return (
+              <Image
+                source={require("../../assets/images/yt-logo.png")}
+                style={tw`w-28 h-9 ml-2`}
+                resizeMode="stretch"
+              />
+            );
+          },
+          headerRight: () => {
+            return (
+              <View style={tw`mr-2 flex-row items-center gap-x-7`}>
+                <FontAwesome5 name="chromecast" size={24} color="black" />
+                <FontAwesome name="bell-o" size={24} color="black" />
+                <AntDesign name="search1" size={24} color="black" />
+              </View>
+            );
+          },
+          headerTitle: "",
         }}
       />
 
