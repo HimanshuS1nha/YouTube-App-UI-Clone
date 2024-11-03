@@ -5,7 +5,6 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 import VideoPreview from "@/components/VideoPreview";
 
-import { shorts } from "@/constants/shorts";
 import { videos } from "@/constants/videos";
 import ShortsSection from "@/components/ShortsSection";
 
