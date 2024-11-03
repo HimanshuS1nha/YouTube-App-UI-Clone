@@ -4,9 +4,12 @@ import tw from "twrnc";
 import {
   AntDesign,
   FontAwesome,
+  FontAwesome6,
+  Ionicons,
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
+import { videos } from "@/constants/videos";
 
 const Profile = () => {
   const menuOptions = [
@@ -33,6 +36,25 @@ const Profile = () => {
       iconName: "share",
       title: "Share channel",
       size: 15,
+    },
+  ];
+
+  const playListSectionItems = [
+    {
+      title: "Liked Videos",
+      Icon: AntDesign,
+      iconName: "like1",
+      value: "7M",
+      color: "#09152b",
+      secondaryColor: "#9399a9",
+    },
+    {
+      title: "Watch later",
+      Icon: FontAwesome6,
+      iconName: "clock",
+      value: "0",
+      color: "#525252",
+      secondaryColor: "#898989",
     },
   ];
   return (
@@ -78,13 +100,104 @@ const Profile = () => {
         })}
       </ScrollView>
 
-      <View style={tw`mt-6 px-4`}>
+      <View style={tw`mt-6 px-4 gap-y-4`}>
         <View style={tw`flex-row justify-between items-center`}>
           <Text style={tw`text-lg font-bold`}>History</Text>
-          <Pressable>
-            <Text>View all</Text>
+          <Pressable style={tw`rounded-full border border-gray-300 px-3 py-2`}>
+            <Text style={tw`text-xs font-medium`}>View all</Text>
           </Pressable>
         </View>
+
+        <ScrollView
+          contentContainerStyle={tw`gap-x-4`}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
+          {videos.map((video) => {
+            return (
+              <View key={video.title} style={tw`gap-y-1 w-40`}>
+                <Image
+                  source={{ uri: video.image }}
+                  style={tw`h-20 w-full rounded-xl`}
+                  resizeMode="stretch"
+                />
+                <View style={tw`flex-row justify-between`}>
+                  <Text style={tw`text-base font-semibold w-[90%]`}>
+                    {video.title.substring(0, 20)}...
+                  </Text>
+                  <Ionicons
+                    name="ellipsis-vertical-sharp"
+                    size={20}
+                    color="black"
+                    style={tw`mt-1`}
+                  />
+                </View>
+                <Text style={tw`text-gray-700 text-xs`}>
+                  {video.channelName}
+                </Text>
+              </View>
+            );
+          })}
+        </ScrollView>
+      </View>
+
+      <View style={tw`mt-6 px-4 gap-y-1`}>
+        <View style={tw`flex-row justify-between items-center`}>
+          <Text style={tw`text-lg font-bold`}>Playlists</Text>
+          <View style={tw`flex-row gap-x-4 items-center`}>
+            <AntDesign name="plus" size={24} color="black" />
+            <Pressable
+              style={tw`rounded-full border border-gray-300 px-3 py-2`}
+            >
+              <Text style={tw`text-xs font-medium`}>View all</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <ScrollView
+          contentContainerStyle={tw`gap-x-4 pt-3`}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
+          {playListSectionItems.map((item) => {
+            return (
+              <View style={tw`gap-y-1 w-40`} key={item.title}>
+                <View
+                  style={tw`w-full h-20 bg-[${item.color}] rounded-xl border-2 border-white z-20 items-center justify-center gap-y-2`}
+                >
+                  <item.Icon
+                    name={item.iconName as never}
+                    color={"white"}
+                    size={20}
+                  />
+                  <Text style={tw`text-white`}>{item.value}</Text>
+                </View>
+                <View
+                  style={tw`w-[95%] h-20 bg-[${item.secondaryColor}] rounded-xl absolute -top-[6%] z-10 left-[2.5%]`}
+                />
+
+                <View style={tw`ml-1`}>
+                  <Text style={tw`font-semibold text-base`}>{item.title}</Text>
+                  <Text style={tw`text-gray-700`}>Private</Text>
+                </View>
+              </View>
+            );
+          })}
+
+          <View style={tw`gap-y-1 w-40`}>
+            <View style={tw`w-40 h-20 items-center justify-center`}>
+              <View
+                style={tw`w-16 h-16 items-center justify-center bg-gray-200 rounded-full`}
+              >
+                <AntDesign name="plus" size={24} color="black" />
+              </View>
+            </View>
+
+            <Text style={tw`font-semibold text-base text-center`}>
+              New playlist
+            </Text>
+          </View>
+        </ScrollView>
       </View>
     </View>
   );
