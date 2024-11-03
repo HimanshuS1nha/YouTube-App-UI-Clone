@@ -3,11 +3,14 @@ import React from "react";
 import tw from "twrnc";
 import {
   AntDesign,
+  Feather,
   FontAwesome,
   FontAwesome6,
   Ionicons,
   MaterialCommunityIcons,
   MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
 } from "@expo/vector-icons";
 import { videos } from "@/constants/videos";
 
@@ -58,7 +61,10 @@ const Profile = () => {
     },
   ];
   return (
-    <View style={tw`bg-white py-4`}>
+    <ScrollView
+      contentContainerStyle={tw`bg-white py-4`}
+      showsVerticalScrollIndicator={false}
+    >
       <View style={tw`px-3 flex-row gap-x-3 items-center`}>
         <Image
           source={require("../../assets/images/channel-logo.png")}
@@ -199,7 +205,67 @@ const Profile = () => {
           </View>
         </ScrollView>
       </View>
-    </View>
+
+      <View style={tw`mt-10 px-6 gap-y-6`}>
+        <View style={tw`flex-row gap-x-6 items-center`}>
+          <MaterialCommunityIcons
+            name="play-box-outline"
+            size={24}
+            color="black"
+          />
+          <Text style={tw`text-base`}>Your videos</Text>
+        </View>
+
+        <View style={tw`flex-row justify-between items-center`}>
+          <View style={tw`flex-row gap-x-7.5 items-center`}>
+            <Octicons
+              name="download"
+              size={24}
+              color="black"
+              style={tw`ml-1`}
+            />
+            <View>
+              <Text style={tw`text-base`}>Downloads</Text>
+              <Text>20 videos</Text>
+            </View>
+          </View>
+
+          <AntDesign name="checkcircle" size={22} color="black" />
+        </View>
+      </View>
+
+      <View style={tw`w-full h-[0.5px] bg-gray-400 mt-6`} />
+
+      <View style={tw`mt-6 px-6 gap-y-6`}>
+        <View style={tw`flex-row gap-x-6 items-center`}>
+          <MaterialCommunityIcons
+            name="movie-open-outline"
+            size={24}
+            color="black"
+          />
+          <Text style={tw`text-base`}>Your movies</Text>
+        </View>
+        <View style={tw`flex-row gap-x-6 items-center`}>
+          <SimpleLineIcons name="social-youtube" size={24} color="black" />
+          <Text style={tw`text-base`}>Get YouTube Premium</Text>
+        </View>
+      </View>
+
+      <View style={tw`w-full h-[0.5px] bg-gray-400 mt-6`} />
+
+      <View style={tw`mt-6 px-6 gap-y-6`}>
+        <View style={tw`flex-row gap-x-5 items-center`}>
+          <View style={tw`border border-black p-[0.3px]`}>
+            <MaterialIcons name="bar-chart" size={24} color="black" />
+          </View>
+          <Text style={tw`text-base`}>Time watched</Text>
+        </View>
+        <View style={tw`flex-row gap-x-6 items-center`}>
+          <Feather name="help-circle" size={24} color="black" />
+          <Text style={tw`text-base`}>Help & feedback</Text>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
