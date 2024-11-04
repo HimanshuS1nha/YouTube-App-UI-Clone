@@ -12,6 +12,8 @@ import {
   Octicons,
   SimpleLineIcons,
 } from "@expo/vector-icons";
+import { router } from "expo-router";
+
 import { videos } from "@/constants/videos";
 
 const Profile = () => {
@@ -76,10 +78,13 @@ const Profile = () => {
           <View style={tw`flex-row items-center gap-x-1.5 items-center`}>
             <Text>@CodingChange</Text>
             <Text>•</Text>
-            <View style={tw`flex-row gap-x-1 items-center`}>
+            <Pressable
+              style={tw`flex-row gap-x-1 items-center`}
+              onPress={() => router.push("/my-channel")}
+            >
               <Text style={tw`text-gray-700`}>View channel</Text>
               <AntDesign name="right" size={15} color="gray" />
-            </View>
+            </Pressable>
           </View>
         </View>
       </View>
