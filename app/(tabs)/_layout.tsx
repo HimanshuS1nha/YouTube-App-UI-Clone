@@ -57,6 +57,7 @@ const TabsLayout = () => {
         name="shorts"
         options={{
           title: "Shorts",
+          headerTitle: "",
           tabBarIcon: ({ focused }) => {
             return (
               <>
@@ -72,6 +73,18 @@ const TabsLayout = () => {
                   />
                 )}
               </>
+            );
+          },
+          headerRight: () => {
+            return (
+              <View style={tw`mr-2 flex-row items-center gap-x-7`}>
+                <AntDesign name="search1" size={24} color="black" />
+                <Ionicons
+                  name="ellipsis-vertical-sharp"
+                  size={24}
+                  color="black"
+                />
+              </View>
             );
           },
         }}
