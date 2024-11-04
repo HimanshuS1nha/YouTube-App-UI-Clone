@@ -1,5 +1,5 @@
 import { View, Text, Image, Pressable } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twrnc";
 import {
   AntDesign,
@@ -8,17 +8,37 @@ import {
   FontAwesome6,
   Feather,
 } from "@expo/vector-icons";
+import { Video, ResizeMode } from "expo-av";
 
 const Shorts = () => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => (prev === 100 ? 0 : prev + 10));
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
   return (
     <View style={tw`flex-1 bg-white`}>
-      <View style={tw`bg-yellow-500 w-full h-[62%] mt-[20%]`}></View>
+      <Video
+        source={{
+          uri: "https://videocdn.cdnpk.net/videos/38e78170-34d9-559c-b2d5-537a4c94f2e8/horizontal/previews/clear/small.mp4?token=exp=1730740338~hmac=72dc43493642e7c5560f60f12791c08b7fb926a6438c7d2ba1aaeb0039aa5d9f",
+        }}
+        style={tw`w-full h-[62%] mt-[20%]`}
+        resizeMode={ResizeMode.STRETCH}
+        shouldPlay
+        isLooping
+      />
 
       <View style={tw`mt-5 px-3 gap-y-1.5`}>
         <View
           style={tw`flex-row items-center justify-center gap-x-1.5 bg-gray-300 py-2 w-40 rounded-full ml-1.5`}
         >
-          <AntDesign name="search1" size={18} color="black" />
+          <Feather name="search" size={15} color="black" />
           <Text style={tw`text-xs`}>Search "react native"</Text>
         </View>
 
@@ -45,8 +65,8 @@ const Shorts = () => {
       </View>
 
       <View style={tw`absolute bottom-0 w-full flex-row`}>
-        <View style={tw`w-[50%] bg-rose-600 h-1`} />
-        <View style={tw`w-[50%] bg-gray-300 h-1`} />
+        <View style={tw`w-[${progress}%] bg-rose-600 h-1`} />
+        <View style={tw`w-[${100 - progress}%] bg-gray-300 h-1`} />
       </View>
 
       <View style={tw`absolute bottom-2 right-3 gap-y-6`}>
