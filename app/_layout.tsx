@@ -11,6 +11,7 @@ export default function RootLayout() {
         name="(others)/my-channel"
         options={{
           title: "Coding Change",
+          headerShadowVisible: false,
           headerRight: () => {
             return (
               <View style={tw`mr-2 flex-row items-center gap-x-7`}>
