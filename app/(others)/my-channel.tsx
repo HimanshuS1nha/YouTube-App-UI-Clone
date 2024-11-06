@@ -1,9 +1,12 @@
 import { View, Text, ScrollView, Image, Pressable } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import tw from "twrnc";
 import { MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
 
 const MyChannel = () => {
+  const [selectedOption, setSelectedOption] = useState<
+    "home" | "videos" | "shorts" | "community"
+  >("home");
   return (
     <ScrollView contentContainerStyle={tw`bg-white pb-4`}>
       <View style={tw`mt-4 px-4 gap-y-3`}>
@@ -51,10 +54,54 @@ const MyChannel = () => {
       </View>
 
       <View style={tw`mt-5.5 px-4 flex-row gap-x-6`}>
-        <Text style={tw`font-semibold text-base border-b-2 pb-3`}>Home</Text>
-        <Text style={tw`text-base pb-3`}>Videos</Text>
-        <Text style={tw`text-base pb-3`}>Shorts</Text>
-        <Text style={tw`text-base pb-3`}>Community</Text>
+        <Pressable
+          style={tw`pb-3 ${selectedOption === "home" ? "border-b-2" : ""}`}
+          onPress={() => setSelectedOption("home")}
+        >
+          <Text
+            style={tw`${
+              selectedOption === "home" ? "font-semibold" : ""
+            } text-base`}
+          >
+            Home
+          </Text>
+        </Pressable>
+        <Pressable
+          style={tw`pb-3 ${selectedOption === "videos" ? "border-b-2" : ""}`}
+          onPress={() => setSelectedOption("videos")}
+        >
+          <Text
+            style={tw`${
+              selectedOption === "videos" ? "font-semibold" : ""
+            } text-base`}
+          >
+            Videos
+          </Text>
+        </Pressable>
+        <Pressable
+          style={tw`pb-3 ${selectedOption === "shorts" ? "border-b-2" : ""}`}
+          onPress={() => setSelectedOption("shorts")}
+        >
+          <Text
+            style={tw`${
+              selectedOption === "shorts" ? "font-semibold" : ""
+            } text-base`}
+          >
+            Shorts
+          </Text>
+        </Pressable>
+        <Pressable
+          style={tw`pb-3 ${selectedOption === "community" ? "border-b-2" : ""}`}
+          onPress={() => setSelectedOption("community")}
+        >
+          <Text
+            style={tw`${
+              selectedOption === "community" ? "font-semibold" : ""
+            } text-base`}
+          >
+            Community
+          </Text>
+        </Pressable>
       </View>
     </ScrollView>
   );
