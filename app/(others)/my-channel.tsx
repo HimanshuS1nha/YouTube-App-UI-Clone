@@ -15,7 +15,7 @@ const MyChannel = () => {
 
           <View style={tw`gap-y-0.5`}>
             <Text style={tw`font-bold text-2xl`}>Coding Change</Text>
-            <Text style={tw`font-bold`}>@CodingChange</Text>
+            <Text style={tw`font-medium`}>@CodingChange</Text>
             <View style={tw`flex-row items-center gap-x-1.5 items-center`}>
               <Text style={tw`text-gray-700`}>26 subscribers</Text>
               <Text style={tw`text-gray-700`}>•</Text>
@@ -48,6 +48,13 @@ const MyChannel = () => {
             <SimpleLineIcons name="pencil" size={19} color="black" />
           </Pressable>
         </View>
+      </View>
+
+      <View style={tw`mt-5.5 px-4 flex-row gap-x-6`}>
+        <Text style={tw`font-semibold text-base border-b-2 pb-3`}>Home</Text>
+        <Text style={tw`text-base pb-3`}>Videos</Text>
+        <Text style={tw`text-base pb-3`}>Shorts</Text>
+        <Text style={tw`text-base pb-3`}>Community</Text>
       </View>
     </ScrollView>
   );
