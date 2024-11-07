@@ -1,8 +1,10 @@
 import { View, Text, ScrollView, Image, Pressable } from "react-native";
 import React, { useState } from "react";
 import tw from "twrnc";
-import { MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
+import { MaterialIcons, SimpleLineIcons, Ionicons } from "@expo/vector-icons";
+
 import { shorts } from "@/constants/shorts";
+import { videos } from "@/constants/videos";
 
 const MyChannel = () => {
   const [selectedOption, setSelectedOption] = useState<
@@ -130,22 +132,33 @@ const MyChannel = () => {
               </View>
             </View>
 
-            <View style={tw`gap-y-3`}>
-              <Text style={tw`font-semibold text-base px-3`}>Videos</Text>
-              <View style={tw`flex-row flex-wrap`}>
-                {shorts.map((short) => {
+            <View style={tw`gap-y-3 px-3`}>
+              <Text style={tw`font-semibold text-base`}>Videos</Text>
+              <View style={tw`gap-y-3`}>
+                {videos.map((video) => {
                   return (
-                    <View key={short.title} style={tw`w-[33%] h-[200px]`}>
+                    <View key={video.title} style={tw`flex-row gap-x-2`}>
                       <Image
-                        source={{ uri: short.image }}
-                        style={tw`w-full h-full`}
+                        source={{ uri: video.image }}
+                        style={tw`w-44 h-24 rounded-lg`}
                       />
 
-                      <Text
-                        style={tw`absolute bottom-1.5 left-1 text-white text-xs`}
-                      >
-                        {short.views} views
-                      </Text>
+                      <View style={tw`w-[54%]`}>
+                        <View style={tw`flex-row justify-between`}>
+                          <Text style={tw`font-semibold w-[90%]`}>
+                            {video.title}
+                          </Text>
+                          <Ionicons
+                            name="ellipsis-vertical-sharp"
+                            size={20}
+                            color="black"
+                            style={tw`mt-1`}
+                          />
+                        </View>
+                        <Text style={tw`text-gray-700 text-xs`}>
+                          {video.views} views • {video.uploadedAt}
+                        </Text>
+                      </View>
                     </View>
                   );
                 })}
