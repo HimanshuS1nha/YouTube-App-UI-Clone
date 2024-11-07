@@ -1,6 +1,6 @@
-import { Tabs } from "expo-router";
+import { router, Tabs } from "expo-router";
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import tw from "twrnc";
 import {
   Ionicons,
@@ -8,6 +8,7 @@ import {
   FontAwesome,
   FontAwesome5,
   AntDesign,
+  Feather,
 } from "@expo/vector-icons";
 
 const TabsLayout = () => {
@@ -182,6 +183,37 @@ const TabsLayout = () => {
             );
           },
           headerTitle: "",
+        }}
+      />
+
+      <Tabs.Screen
+        name="my-channel"
+        options={{
+          tabBarButton: () => null,
+          title: "Coding Change",
+          headerRight: () => {
+            return (
+              <View style={tw`mr-2 flex-row items-center gap-x-7`}>
+                <FontAwesome5 name="chromecast" size={24} color="black" />
+                <AntDesign name="search1" size={24} color="black" />
+                <Ionicons
+                  name="ellipsis-vertical-sharp"
+                  size={24}
+                  color="black"
+                />
+              </View>
+            );
+          },
+          headerLeft: () => {
+            return (
+              <Pressable
+                style={tw`ml-3.5`}
+                onPress={() => router.push("/profile")}
+              >
+                <Feather name="arrow-left" size={24} color="black" />
+              </Pressable>
+            );
+          },
         }}
       />
     </Tabs>

@@ -2,6 +2,7 @@ import { View, Text, ScrollView, Image, Pressable } from "react-native";
 import React, { useState } from "react";
 import tw from "twrnc";
 import { MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
+import { shorts } from "@/constants/shorts";
 
 const MyChannel = () => {
   const [selectedOption, setSelectedOption] = useState<
@@ -102,6 +103,90 @@ const MyChannel = () => {
             Community
           </Text>
         </Pressable>
+      </View>
+
+      <View style={tw`mt-3.5`}>
+        {selectedOption === "home" && (
+          <View style={tw`gap-y-5`}>
+            <View style={tw`gap-y-3`}>
+              <Text style={tw`font-semibold text-base px-3`}>Shorts</Text>
+              <View style={tw`flex-row flex-wrap`}>
+                {shorts.map((short) => {
+                  return (
+                    <View key={short.title} style={tw`w-[33%] h-[200px]`}>
+                      <Image
+                        source={{ uri: short.image }}
+                        style={tw`w-full h-full`}
+                      />
+
+                      <Text
+                        style={tw`absolute bottom-1.5 left-1 text-white text-xs`}
+                      >
+                        {short.views} views
+                      </Text>
+                    </View>
+                  );
+                })}
+              </View>
+            </View>
+
+            <View style={tw`gap-y-3`}>
+              <Text style={tw`font-semibold text-base px-3`}>Videos</Text>
+              <View style={tw`flex-row flex-wrap`}>
+                {shorts.map((short) => {
+                  return (
+                    <View key={short.title} style={tw`w-[33%] h-[200px]`}>
+                      <Image
+                        source={{ uri: short.image }}
+                        style={tw`w-full h-full`}
+                      />
+
+                      <Text
+                        style={tw`absolute bottom-1.5 left-1 text-white text-xs`}
+                      >
+                        {short.views} views
+                      </Text>
+                    </View>
+                  );
+                })}
+              </View>
+            </View>
+          </View>
+        )}
+
+        {selectedOption === "shorts" && (
+          <View style={tw`gap-y-3`}>
+            <View style={tw`px-3 flex-row items-center gap-x-3`}>
+              <View style={tw`bg-black py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold text-white`}>Latest</Text>
+              </View>
+              <View style={tw`bg-[#f2f2f2] py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold`}>Popular</Text>
+              </View>
+              <View style={tw`bg-[#f2f2f2] py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold`}>Oldest</Text>
+              </View>
+            </View>
+            <View style={tw`flex-row flex-wrap`}>
+              {shorts.map((short) => {
+                return (
+                  <View key={short.title} style={tw`w-[33%] h-[200px]`}>
+                    <Image
+                      source={{ uri: short.image }}
+                      style={tw`w-full h-full`}
+                    />
+
+                    <Text
+                      style={tw`absolute bottom-1.5 left-1 text-white text-xs`}
+                    >
+                      {short.views} views
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
+          </View>
+        )}
       </View>
     </ScrollView>
   );
