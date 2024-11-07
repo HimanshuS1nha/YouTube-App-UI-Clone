@@ -167,6 +167,51 @@ const MyChannel = () => {
           </View>
         )}
 
+        {selectedOption === "videos" && (
+          <View style={tw`gap-y-3`}>
+            <View style={tw`px-3 flex-row items-center gap-x-3`}>
+              <View style={tw`bg-black py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold text-white`}>Latest</Text>
+              </View>
+              <View style={tw`bg-[#f2f2f2] py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold`}>Popular</Text>
+              </View>
+              <View style={tw`bg-[#f2f2f2] py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold`}>Oldest</Text>
+              </View>
+            </View>
+            <View style={tw`gap-y-3 px-3`}>
+              {videos.map((video) => {
+                return (
+                  <View key={video.title} style={tw`flex-row gap-x-2`}>
+                    <Image
+                      source={{ uri: video.image }}
+                      style={tw`w-44 h-24 rounded-lg`}
+                    />
+
+                    <View style={tw`w-[54%]`}>
+                      <View style={tw`flex-row justify-between`}>
+                        <Text style={tw`font-semibold w-[90%]`}>
+                          {video.title}
+                        </Text>
+                        <Ionicons
+                          name="ellipsis-vertical-sharp"
+                          size={20}
+                          color="black"
+                          style={tw`mt-1`}
+                        />
+                      </View>
+                      <Text style={tw`text-gray-700 text-xs`}>
+                        {video.views} views • {video.uploadedAt}
+                      </Text>
+                    </View>
+                  </View>
+                );
+              })}
+            </View>
+          </View>
+        )}
+
         {selectedOption === "shorts" && (
           <View style={tw`gap-y-3`}>
             <View style={tw`px-3 flex-row items-center gap-x-3`}>
