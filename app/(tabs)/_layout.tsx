@@ -232,6 +232,14 @@ const TabsLayout = () => {
               </Pressable>
             );
           },
+          headerRight: () => (
+            <Ionicons
+              name="ellipsis-vertical-sharp"
+              size={24}
+              color="black"
+              style={tw`mr-2`}
+            />
+          ),
         }}
       />
     </Tabs>
