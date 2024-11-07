@@ -216,6 +216,24 @@ const TabsLayout = () => {
           },
         }}
       />
+
+      <Tabs.Screen
+        name="analytics"
+        options={{
+          tabBarButton: () => null,
+          title: "",
+          headerLeft: () => {
+            return (
+              <Pressable
+                style={tw`ml-3.5`}
+                onPress={() => router.push("/profile")}
+              >
+                <Feather name="arrow-left" size={24} color="black" />
+              </Pressable>
+            );
+          },
+        }}
+      />
     </Tabs>
   );
 };

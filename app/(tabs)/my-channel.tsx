@@ -1,7 +1,20 @@
-import { View, Text, ScrollView, Image, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  Pressable,
+  TextInput,
+} from "react-native";
 import React, { useState } from "react";
 import tw from "twrnc";
-import { MaterialIcons, SimpleLineIcons, Ionicons } from "@expo/vector-icons";
+import {
+  MaterialIcons,
+  SimpleLineIcons,
+  Ionicons,
+  FontAwesome5,
+} from "@expo/vector-icons";
+import { router } from "expo-router";
 
 import { shorts } from "@/constants/shorts";
 import { videos } from "@/constants/videos";
@@ -11,7 +24,7 @@ const MyChannel = () => {
     "home" | "videos" | "shorts" | "community"
   >("home");
   return (
-    <ScrollView contentContainerStyle={tw`bg-white pb-4`}>
+    <ScrollView contentContainerStyle={tw`bg-white pb-4 flex-1`}>
       <View style={tw`mt-4 px-4 gap-y-3`}>
         <View style={tw`flex-row gap-x-3 items-center`}>
           <Image
@@ -43,6 +56,7 @@ const MyChannel = () => {
           </Pressable>
           <Pressable
             style={tw`bg-[#f2f2f2] p-2 items-center justify-center rounded-full`}
+            onPress={() => router.push("/analytics")}
           >
             <View style={tw`border border-black p-[0.3px]`}>
               <MaterialIcons name="bar-chart" size={18} color="black" />
@@ -56,7 +70,9 @@ const MyChannel = () => {
         </View>
       </View>
 
-      <View style={tw`mt-5.5 px-4 flex-row gap-x-6`}>
+      <View
+        style={tw`mt-5.5 px-4 flex-row gap-x-6 border-b-[0.5px] border-b-gray-300`}
+      >
         <Pressable
           style={tw`pb-3 ${selectedOption === "home" ? "border-b-2" : ""}`}
           onPress={() => setSelectedOption("home")}
@@ -242,6 +258,55 @@ const MyChannel = () => {
                   </View>
                 );
               })}
+            </View>
+          </View>
+        )}
+
+        {selectedOption === "community" && (
+          <View style={tw`px-3 gap-y-4`}>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={tw`gap-x-3`}
+            >
+              <View style={tw`bg-black py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold text-white`}>Published</Text>
+              </View>
+              <View style={tw`bg-[#f2f2f2] py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold`}>Scheduled</Text>
+              </View>
+              <View style={tw`bg-[#f2f2f2] py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold`}>Archived</Text>
+              </View>
+              <View style={tw`bg-[#f2f2f2] py-1.5 px-3.5 rounded-lg`}>
+                <Text style={tw`font-semibold`}>Post activity</Text>
+              </View>
+            </ScrollView>
+
+            <View>
+              <TextInput
+                style={tw`bg-[#f2f2f2] py-2 pl-10 rounded-xl`}
+                placeholder="Share a sneak peak of your next video"
+              />
+              <View style={tw`absolute top-[23%] left-[2.5%]`}>
+                <FontAwesome5 name="edit" size={20} color="gray" />
+              </View>
+            </View>
+
+            <View style={tw`items-center mt-[13%] gap-y-3`}>
+              <View
+                style={tw`bg-[#f2f2f2] w-16 h-16 rounded-full items-center justify-center`}
+              >
+                <FontAwesome5 name="edit" size={28} color="black" />
+              </View>
+
+              <View style={tw`gap-y-1 items-center  w-[74%]`}>
+                <Text style={tw`text-base font-semibold`}>Publish post</Text>
+                <Text style={tw`text-center`}>
+                  Posts appear here after you publish and will be visible to
+                  your community
+                </Text>
+              </View>
             </View>
           </View>
         )}
