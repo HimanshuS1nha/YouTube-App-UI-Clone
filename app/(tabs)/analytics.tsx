@@ -34,7 +34,10 @@ const Analytics = () => {
     },
   ];
   return (
-    <ScrollView contentContainerStyle={tw`bg-white px-4 pt-2 gap-y-6`}>
+    <ScrollView
+      contentContainerStyle={tw`bg-white px-4 pt-2 gap-y-6`}
+      showsVerticalScrollIndicator={false}
+    >
       <View>
         <Text style={tw`text-3xl font-bold`}>Analytics</Text>
         <Text style={tw`text-gray-700`}>All time</Text>
@@ -144,7 +147,11 @@ const Analytics = () => {
       <View style={tw`gap-y-3`}>
         <Text style={tw`font-bold text-base`}>Top shorts</Text>
 
-        <ScrollView horizontal contentContainerStyle={tw`gap-x-3`}>
+        <ScrollView
+          horizontal
+          contentContainerStyle={tw`gap-x-3`}
+          showsHorizontalScrollIndicator={false}
+        >
           {shorts.map((short) => {
             return (
               <View key={short.title} style={tw`w-36 h-[200px] rounded-lg`}>
@@ -165,7 +172,11 @@ const Analytics = () => {
       <View style={tw`gap-y-3`}>
         <Text style={tw`font-bold text-base`}>Top videos and live streams</Text>
 
-        <ScrollView horizontal contentContainerStyle={tw`gap-x-3`}>
+        <ScrollView
+          horizontal
+          contentContainerStyle={tw`gap-x-3`}
+          showsHorizontalScrollIndicator={false}
+        >
           {videos.map((video) => {
             return (
               <View key={video.title} style={tw`gap-y-1 w-40`}>
@@ -183,6 +194,122 @@ const Analytics = () => {
               </View>
             );
           })}
+        </ScrollView>
+      </View>
+
+      <View style={tw`gap-y-3`}>
+        <Text style={tw`font-bold text-base`}>Your audience</Text>
+
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={tw`gap-x-5`}
+        >
+          <View style={tw`w-[350px] gap-y-1`}>
+            <Text style={tw`font-medium`}>Age</Text>
+
+            <View style={tw`gap-y-4`}>
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>13-17 years</Text>
+                  <Text>5%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[5%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[95%] h-1`} />
+                </View>
+              </View>
+
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>18-24 years</Text>
+                  <Text>50%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[50%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[50%] h-1`} />
+                </View>
+              </View>
+
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>25-34 years</Text>
+                  <Text>35%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[35%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[65%] h-1`} />
+                </View>
+              </View>
+            </View>
+          </View>
+
+          <View style={tw`w-[375px] gap-y-1`}>
+            <Text style={tw`font-medium`}>Gender</Text>
+
+            <View style={tw`gap-y-4`}>
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>Male</Text>
+                  <Text>75%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[75%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[25%] h-1`} />
+                </View>
+              </View>
+
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>Female</Text>
+                  <Text>25%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[25%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[75%] h-1`} />
+                </View>
+              </View>
+
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>User specified</Text>
+                  <Text>0%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[0%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[0%] h-1`} />
+                </View>
+              </View>
+            </View>
+          </View>
+
+          <View style={tw`w-[375px] gap-y-1`}>
+            <Text style={tw`font-medium`}>Geography</Text>
+
+            <View style={tw`gap-y-4`}>
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>India</Text>
+                  <Text>33%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[33%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[67%] h-1`} />
+                </View>
+              </View>
+
+              <View style={tw`gap-y-2`}>
+                <View style={tw`flex-row justify-between`}>
+                  <Text>United States</Text>
+                  <Text>10%</Text>
+                </View>
+                <View style={tw`flex-row`}>
+                  <View style={tw`bg-[#6a9cd6] w-[10%] h-1`} />
+                  <View style={tw`bg-[#f2f2f2] w-[90%] h-1`} />
+                </View>
+              </View>
+            </View>
+          </View>
         </ScrollView>
       </View>
     </ScrollView>
