@@ -89,15 +89,50 @@ const Analytics = () => {
             <View style={tw`flex-row gap-x-0.5 items-end`}>
               <View style={tw`w-4 h-1 bg-[#aaaaaa]`} />
               <View style={tw`w-4 h-1 bg-[#aaaaaa]`} />
-              <View style={tw`w-4 h-3 bg-[#5190e0] rounded-t-sm`} />
-              <View style={tw`w-4 h-5 bg-[#5190e0] rounded-t-sm`} />
-              <View style={tw`w-4 h-7 bg-[#5190e0] rounded-t-sm`} />
-              <View style={tw`w-4 h-5 bg-[#5190e0] rounded-t-sm`} />
-              <View style={tw`w-4 h-7.5 bg-[#075ed6] rounded-t-sm`} />
+              <View style={tw`w-4 h-3 bg-[#5190e0] rounded-t-[4px]`} />
+              <View style={tw`w-4 h-5 bg-[#5190e0] rounded-t-[4px]`} />
+              <View style={tw`w-4 h-7 bg-[#5190e0] rounded-t-[4px]`} />
+              <View style={tw`w-4 h-5 bg-[#5190e0] rounded-t-[4px]`} />
+              <View style={tw`w-4 h-7.5 bg-[#075ed6] rounded-t-[4px]`} />
             </View>
             <View style={tw`flex-row justify-between`}>
               <Text style={tw`text-gray-700 text-xs`}>Nov 3</Text>
               <Text style={tw`text-gray-700 text-xs`}>Nov 9</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      <View style={tw`gap-y-3`}>
+        <Text style={tw`font-bold text-base`}>Latest creation</Text>
+
+        <View
+          style={tw`px-2 border-[0.8px] border-gray-300 rounded-lg p-2 flex-row items-center gap-x-3.5`}
+        >
+          <Image
+            source={{
+              uri: "https://images.pexels.com/photos/15940012/pexels-photo-15940012/free-photo-of-close-up-of-a-smartphone-displaying-a-conversation-with-chatgpt.jpeg?auto=compress&cs=tinysrgb&w=600",
+            }}
+            style={tw`w-36 h-[200px] rounded-lg`}
+          />
+
+          <View style={tw`gap-y-4`}>
+            <View style={tw`gap-y-1`}>
+              <Text style={tw`text-base font-semibold`}>
+                AI App in React Native
+              </Text>
+              <Text style={tw`text-gray-700`}>12 days ago</Text>
+            </View>
+
+            <View style={tw`gap-y-2`}>
+              <View style={tw`flex-row gap-x-2`}>
+                <AntDesign name="eyeo" size={18} color={"black"} />
+                <Text style={tw`font-bold`}>6.4M</Text>
+              </View>
+              <View style={tw`flex-row gap-x-2`}>
+                <AntDesign name="like2" size={18} color={"black"} />
+                <Text style={tw`font-bold`}>2M</Text>
+              </View>
             </View>
           </View>
         </View>
