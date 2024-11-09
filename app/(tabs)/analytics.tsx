@@ -4,6 +4,7 @@ import tw from "twrnc";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { shorts } from "@/constants/shorts";
+import { videos } from "@/constants/videos";
 
 const Analytics = () => {
   const stats = [
@@ -154,6 +155,30 @@ const Analytics = () => {
 
                 <Text style={tw`absolute bottom-1.5 left-1 text-white text-xs`}>
                   {short.views} views
+                </Text>
+              </View>
+            );
+          })}
+        </ScrollView>
+      </View>
+
+      <View style={tw`gap-y-3`}>
+        <Text style={tw`font-bold text-base`}>Top videos and live streams</Text>
+
+        <ScrollView horizontal contentContainerStyle={tw`gap-x-3`}>
+          {videos.map((video) => {
+            return (
+              <View key={video.title} style={tw`gap-y-1 w-40`}>
+                <Image
+                  source={{ uri: video.image }}
+                  style={tw`h-20 w-full rounded-xl`}
+                  resizeMode="stretch"
+                />
+                <Text style={tw`text-base font-semibold w-[90%]`}>
+                  {video.title.substring(0, 20)}...
+                </Text>
+                <Text style={tw`text-gray-700 text-xs`}>
+                  {video.views} views • {video.uploadedAt}
                 </Text>
               </View>
             );
