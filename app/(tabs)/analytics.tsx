@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, Pressable } from "react-native";
 import React from "react";
 import tw from "twrnc";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -311,6 +311,25 @@ const Analytics = () => {
             </View>
           </View>
         </ScrollView>
+      </View>
+
+      <View
+        style={tw`mt-10 px-2 border-[0.8px] border-gray-300 rounded-lg p-3 gap-y-4 mb-6`}
+      >
+        <Text style={tw`font-semibold text-base`}>
+          Get in-depth analytics and advanced controls with YouTube studio app
+        </Text>
+
+        <Pressable
+          style={tw`bg-[#f2f2f2] py-2 items-center justify-center rounded-full flex-row gap-x-2.5`}
+        >
+          <MaterialCommunityIcons
+            name="youtube-studio"
+            size={24}
+            color="black"
+          />
+          <Text style={tw`font-semibold`}>Go to YouTube Studio</Text>
+        </Pressable>
       </View>
     </ScrollView>
   );
