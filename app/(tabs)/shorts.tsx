@@ -25,9 +25,7 @@ const Shorts = () => {
   return (
     <View style={tw`flex-1 bg-white`}>
       <Video
-        source={{
-          uri: "https://videocdn.cdnpk.net/videos/38e78170-34d9-559c-b2d5-537a4c94f2e8/horizontal/previews/clear/small.mp4?token=exp=1731000894~hmac=266c748289012a2b6d2320c02db4c2105d8e1b6331ff8bd24e414ce847a4b9c7",
-        }}
+        source={require("../../assets/videos/video-1.mp4")}
         style={tw`w-full h-[62%] mt-[20%]`}
         resizeMode={ResizeMode.STRETCH}
         shouldPlay

@@ -1,7 +1,8 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import React from "react";
 import tw from "twrnc";
-import { FontAwesome5, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 const VideoPreview = ({
   video,
@@ -17,7 +18,12 @@ const VideoPreview = ({
   };
 }) => {
   return (
-    <View style={tw`gap-y-3`}>
+    <Pressable
+      style={tw`gap-y-3`}
+      onPress={() => {
+        router.push("/video");
+      }}
+    >
       <View style={tw`h-52`}>
         <Image source={{ uri: video.image }} style={tw`w-full h-full`} />
 
@@ -52,7 +58,7 @@ const VideoPreview = ({
           style={tw`mt-1`}
         />
       </View>
-    </View>
+    </Pressable>
   );
 };
 
