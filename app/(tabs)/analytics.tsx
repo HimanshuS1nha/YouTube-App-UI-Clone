@@ -31,7 +31,7 @@ const Analytics = () => {
     },
   ];
   return (
-    <ScrollView contentContainerStyle={tw`flex-1 bg-white px-4 pt-2 gap-y-5`}>
+    <ScrollView contentContainerStyle={tw`flex-1 bg-white px-4 pt-2 gap-y-6`}>
       <View>
         <Text style={tw`text-3xl font-bold`}>Analytics</Text>
         <Text style={tw`text-gray-700`}>All time</Text>
@@ -73,6 +73,33 @@ const Analytics = () => {
               </View>
             );
           })}
+        </View>
+      </View>
+
+      <View style={tw`gap-y-3`}>
+        <Text style={tw`font-bold text-base`}>Recent views</Text>
+
+        <View style={tw`flex-row justify-between`}>
+          <View>
+            <Text style={tw`font-semibold`}>2M</Text>
+            <Text>Last 7 days</Text>
+          </View>
+
+          <View style={tw`justify-end`}>
+            <View style={tw`flex-row gap-x-0.5 items-end`}>
+              <View style={tw`w-4 h-1 bg-[#aaaaaa]`} />
+              <View style={tw`w-4 h-1 bg-[#aaaaaa]`} />
+              <View style={tw`w-4 h-3 bg-[#5190e0] rounded-t-sm`} />
+              <View style={tw`w-4 h-5 bg-[#5190e0] rounded-t-sm`} />
+              <View style={tw`w-4 h-7 bg-[#5190e0] rounded-t-sm`} />
+              <View style={tw`w-4 h-5 bg-[#5190e0] rounded-t-sm`} />
+              <View style={tw`w-4 h-7.5 bg-[#075ed6] rounded-t-sm`} />
+            </View>
+            <View style={tw`flex-row justify-between`}>
+              <Text style={tw`text-gray-700 text-xs`}>Nov 3</Text>
+              <Text style={tw`text-gray-700 text-xs`}>Nov 9</Text>
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>
