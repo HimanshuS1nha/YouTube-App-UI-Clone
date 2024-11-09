@@ -3,6 +3,8 @@ import React from "react";
 import tw from "twrnc";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
+import { shorts } from "@/constants/shorts";
+
 const Analytics = () => {
   const stats = [
     {
@@ -31,7 +33,7 @@ const Analytics = () => {
     },
   ];
   return (
-    <ScrollView contentContainerStyle={tw`flex-1 bg-white px-4 pt-2 gap-y-6`}>
+    <ScrollView contentContainerStyle={tw`bg-white px-4 pt-2 gap-y-6`}>
       <View>
         <Text style={tw`text-3xl font-bold`}>Analytics</Text>
         <Text style={tw`text-gray-700`}>All time</Text>
@@ -136,6 +138,27 @@ const Analytics = () => {
             </View>
           </View>
         </View>
+      </View>
+
+      <View style={tw`gap-y-3`}>
+        <Text style={tw`font-bold text-base`}>Top shorts</Text>
+
+        <ScrollView horizontal contentContainerStyle={tw`gap-x-3`}>
+          {shorts.map((short) => {
+            return (
+              <View key={short.title} style={tw`w-36 h-[200px] rounded-lg`}>
+                <Image
+                  source={{ uri: short.image }}
+                  style={tw`w-full h-full rounded-lg`}
+                />
+
+                <Text style={tw`absolute bottom-1.5 left-1 text-white text-xs`}>
+                  {short.views} views
+                </Text>
+              </View>
+            );
+          })}
+        </ScrollView>
       </View>
     </ScrollView>
   );
