@@ -91,6 +91,29 @@ const VideoPage = () => {
               <Text style={tw`font-semibold`}>Download</Text>
             </View>
           </ScrollView>
+
+          <View style={tw`bg-gray-200/70 p-3 rounded-xl gap-y-2`}>
+            <View style={tw`flex-row justify-between items-center`}>
+              <View style={tw`flex-row gap-x-2 items-center`}>
+                <Text style={tw`font-bold`}>Comments</Text>
+                <Text>10K</Text>
+              </View>
+              <View style={tw`flex-row gap-x-1 items-center`}>
+                <View style={tw`size-2 rounded-full bg-black`} />
+                <View style={tw`size-2 rounded-full bg-gray-300`} />
+              </View>
+            </View>
+
+            <View style={tw`flex-row gap-x-3 items-center`}>
+              <Image
+                source={require("../../assets/images/channel-logo.png")}
+                style={tw`w-5.5 h-5.5 rounded-full`}
+              />
+              <Text style={tw`text-xs`}>
+                Amazing tutorial. Learnt a lot from it.
+              </Text>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
