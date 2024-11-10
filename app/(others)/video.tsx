@@ -5,6 +5,8 @@ import { Video, ResizeMode } from "expo-av";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   AntDesign,
+  FontAwesome,
+  FontAwesome6,
   MaterialCommunityIcons,
   Octicons,
 } from "@expo/vector-icons";
@@ -94,6 +96,24 @@ const VideoPage = () => {
               <Octicons name="download" size={16} />
               <Text style={tw`font-semibold`}>Download</Text>
             </View>
+            <View
+              style={tw`flex-row gap-x-2 items-center rounded-full px-4 py-2.5 bg-gray-200/70`}
+            >
+              <FontAwesome name="scissors" size={16} color="black" />
+              <Text style={tw`font-semibold`}>Clip</Text>
+            </View>
+            <View
+              style={tw`flex-row gap-x-2 items-center rounded-full px-4 py-2.5 bg-gray-200/70`}
+            >
+              <FontAwesome name="bookmark-o" size={16} />
+              <Text style={tw`font-semibold`}>Save</Text>
+            </View>
+            <View
+              style={tw`flex-row gap-x-2 items-center rounded-full px-4 py-2.5 bg-gray-200/70`}
+            >
+              <FontAwesome6 name="flag" size={16} color="black" />
+              <Text style={tw`font-semibold`}>Report</Text>
+            </View>
           </ScrollView>
 
           <View style={tw`bg-gray-200/70 p-3 rounded-xl gap-y-2`}>
@@ -113,7 +133,7 @@ const VideoPage = () => {
                 source={require("../../assets/images/channel-logo.png")}
                 style={tw`w-5.5 h-5.5 rounded-full`}
               />
-              <Text style={tw`text-xs`}>
+              <Text style={tw`text-xs font-medium`}>
                 Amazing tutorial. Learnt a lot from it.
               </Text>
             </View>
