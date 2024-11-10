@@ -46,7 +46,7 @@ const VideoPage = () => {
 
           <Pressable
             style={tw`flex-row justify-between items-center`}
-            onPress={() => router.push("/channel")}
+            onPress={() => router.replace("/channel")}
           >
             <View style={tw`flex-row gap-x-3 items-center`}>
               <Image

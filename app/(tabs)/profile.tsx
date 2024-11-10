@@ -80,7 +80,7 @@ const Profile = () => {
             <Text>•</Text>
             <Pressable
               style={tw`flex-row gap-x-1 items-center`}
-              onPress={() => router.push("/my-channel")}
+              onPress={() => router.replace("/my-channel")}
             >
               <Text style={tw`text-gray-700`}>View channel</Text>
               <AntDesign name="right" size={15} color="gray" />

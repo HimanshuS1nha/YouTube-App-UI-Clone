@@ -208,7 +208,7 @@ const TabsLayout = () => {
             return (
               <Pressable
                 style={tw`ml-3.5`}
-                onPress={() => router.push("/profile")}
+                onPress={() => router.replace("/profile")}
               >
                 <Feather name="arrow-left" size={24} color="black" />
               </Pressable>
@@ -239,7 +239,7 @@ const TabsLayout = () => {
             return (
               <Pressable
                 style={tw`ml-3.5`}
-                onPress={() => router.push("/video")}
+                onPress={() => router.replace("/video")}
               >
                 <Feather name="arrow-left" size={24} color="black" />
               </Pressable>
