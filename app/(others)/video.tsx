@@ -10,6 +10,7 @@ import {
   MaterialCommunityIcons,
   Octicons,
 } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 import VideoPreview from "@/components/VideoPreview";
 
@@ -43,7 +44,10 @@ const VideoPage = () => {
             </View>
           </View>
 
-          <View style={tw`flex-row justify-between items-center`}>
+          <Pressable
+            style={tw`flex-row justify-between items-center`}
+            onPress={() => router.push("/channel")}
+          >
             <View style={tw`flex-row gap-x-3 items-center`}>
               <Image
                 source={require("../../assets/images/react-logo.webp")}
@@ -56,7 +60,7 @@ const VideoPage = () => {
             <Pressable style={tw`bg-black px-2.5 py-2 rounded-full`}>
               <Text style={tw`text-white text-xs`}>Subscribe</Text>
             </Pressable>
-          </View>
+          </Pressable>
 
           <ScrollView
             horizontal

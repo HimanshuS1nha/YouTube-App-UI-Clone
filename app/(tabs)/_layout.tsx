@@ -218,6 +218,37 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
+        name="channel"
+        options={{
+          tabBarButton: () => null,
+          title: "Random React Channel",
+          headerRight: () => {
+            return (
+              <View style={tw`mr-2 flex-row items-center gap-x-5.5`}>
+                <FontAwesome5 name="chromecast" size={24} color="black" />
+                <AntDesign name="search1" size={24} color="black" />
+                <Ionicons
+                  name="ellipsis-vertical-sharp"
+                  size={24}
+                  color="black"
+                />
+              </View>
+            );
+          },
+          headerLeft: () => {
+            return (
+              <Pressable
+                style={tw`ml-3.5`}
+                onPress={() => router.push("/video")}
+              >
+                <Feather name="arrow-left" size={24} color="black" />
+              </Pressable>
+            );
+          },
+        }}
+      />
+
+      <Tabs.Screen
         name="analytics"
         options={{
           tabBarButton: () => null,
