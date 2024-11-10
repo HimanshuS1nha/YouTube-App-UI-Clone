@@ -24,7 +24,7 @@ const MyChannel = () => {
     "home" | "videos" | "shorts" | "community"
   >("home");
   return (
-    <ScrollView contentContainerStyle={tw`bg-white pb-4 flex-1`}>
+    <ScrollView contentContainerStyle={tw`bg-white pb-4`}>
       <View style={tw`mt-4 px-4 gap-y-3`}>
         <View style={tw`flex-row gap-x-3 items-center`}>
           <Image
