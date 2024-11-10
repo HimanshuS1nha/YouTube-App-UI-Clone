@@ -9,17 +9,21 @@ import {
   Octicons,
 } from "@expo/vector-icons";
 
+import VideoPreview from "@/components/VideoPreview";
+
+import { videos } from "@/constants/videos";
+
 const VideoPage = () => {
   return (
     <SafeAreaView>
       <View style={tw`h-[300px] bg-black`}>
-        {/* <Video
+        <Video
           source={require("../../assets/videos/video-2.mp4")}
           style={tw`w-full h-full`}
           resizeMode={ResizeMode.STRETCH}
           shouldPlay
           isLooping
-        ></Video> */}
+        ></Video>
       </View>
 
       <ScrollView
@@ -114,6 +118,12 @@ const VideoPage = () => {
               </Text>
             </View>
           </View>
+        </View>
+
+        <View style={tw`mt-3 gap-y-6`}>
+          {videos.map((video) => {
+            return <VideoPreview key={video.title} video={video} />;
+          })}
         </View>
       </ScrollView>
     </SafeAreaView>
