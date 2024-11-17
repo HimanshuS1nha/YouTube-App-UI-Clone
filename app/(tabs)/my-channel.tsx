@@ -24,7 +24,11 @@ const MyChannel = () => {
     "home" | "videos" | "shorts" | "community"
   >("home");
   return (
-    <ScrollView contentContainerStyle={tw`bg-white pb-4`}>
+    <ScrollView
+      contentContainerStyle={tw`bg-white pb-4 ${
+        selectedOption === "community" ? "flex-1" : ""
+      }`}
+    >
       <View style={tw`mt-4 px-4 gap-y-3`}>
         <View style={tw`flex-row gap-x-3 items-center`}>
           <Image
@@ -300,7 +304,7 @@ const MyChannel = () => {
                 <FontAwesome5 name="edit" size={28} color="black" />
               </View>
 
-              <View style={tw`gap-y-1 items-center  w-[74%]`}>
+              <View style={tw`gap-y-1 items-center w-[74%]`}>
                 <Text style={tw`text-base font-semibold`}>Publish post</Text>
                 <Text style={tw`text-center`}>
                   Posts appear here after you publish and will be visible to

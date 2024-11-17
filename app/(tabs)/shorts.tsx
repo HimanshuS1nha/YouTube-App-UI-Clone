@@ -9,28 +9,35 @@ import {
   Feather,
 } from "@expo/vector-icons";
 import { Video, ResizeMode } from "expo-av";
+import { useIsFocused } from "@react-navigation/native";
 
 const Shorts = () => {
+  const isFocused = useIsFocused();
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prev) => (prev === 100 ? 0 : prev + 10));
+      if (isFocused) {
+        setProgress((prev) => (prev === 100 ? 0 : prev + 10));
+      }
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [isFocused]);
   return (
     <View style={tw`flex-1 bg-white`}>
-      <Video
-        source={require("../../assets/videos/video-1.mp4")}
-        style={tw`w-full h-[62%] mt-[20%]`}
-        resizeMode={ResizeMode.STRETCH}
-        shouldPlay
-        isLooping
-      />
+      {isFocused && (
+        <Video
+          source={require("../../assets/videos/video-1.mp4")}
+          style={tw`w-full h-[62%] mt-[20%]`}
+          resizeMode={ResizeMode.STRETCH}
+          shouldPlay
+          isLooping
+        />
+      )}
 
       <View style={tw`mt-5 px-3 gap-y-1.5`}>
         <View
