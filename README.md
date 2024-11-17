@@ -41,7 +41,7 @@ A UI clone of the YouTube mobile application.
 
 ## Demo
 
-Live Demo - Coming Soon
+Live Demo - [Click Here](https://www.youtube.com/shorts/mnvy2duFjZY)
 
 ## 🚀 About Me
 
