@@ -35,31 +35,6 @@ const VideoPage = () => {
               isLooping
             />
           )}
-          <View
-            style={tw`absolute w-full top-1 px-3 flex-row justify-between items-center`}
-          >
-            <Pressable onPress={router.back}>
-              <AntDesign name="down" size={17} color={"white"} />
-            </Pressable>
-            <View style={tw`flex-row gap-x-5 items-center`}>
-              <View style={tw`items-center`}>
-                <View style={tw`bg-gray-600 w-10 h-4 rounded-full`} />
-                <AntDesign
-                  name="play"
-                  size={22}
-                  color="white"
-                  style={tw`absolute right-0 -top-0.5`}
-                />
-              </View>
-              <FontAwesome5 name="chromecast" size={22} color="white" />
-              <MaterialCommunityIcons
-                name="closed-caption-outline"
-                size={22}
-                color="white"
-              />
-              <Ionicons name="settings-outline" size={22} color="white" />
-            </View>
-          </View>
         </View>
 
         <ScrollView
